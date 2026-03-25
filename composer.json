@@ -7,8 +7,24 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "barryvdh/laravel-dompdf": "^3.1",
+        "haruncpi/laravel-id-generator": "^1.1",
+        "inertiajs/inertia-laravel": "*",
+        "intervention/image-laravel": "^1.5",
+        "knuckleswtf/scribe": "^5.9",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/sanctum": "^4.3",
+        "laravel/socialite": "^5.26",
+        "laravel/tinker": "^2.10.1",
+        "maatwebsite/excel": "^3.1",
+        "predis/predis": "^3.4",
+        "propaganistas/laravel-phone": "^6.0",
+        "spatie/laravel-activitylog": "^4.12",
+        "spatie/laravel-backup": "^9.3",
+        "spatie/laravel-permission": "^6.25",
+        "spatie/laravel-settings": "^3.7",
+        "spatie/laravel-sluggable": "^3.8",
+        "tightenco/ziggy": "^2.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
