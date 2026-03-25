@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\LaravelSettings\Repositories\DatabaseSettingsRepository;
+use Spatie\LaravelSettings\SettingsRepositories\DatabaseSettingsRepository;
 
 return [
     'settings' => [
