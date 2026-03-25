@@ -14,5 +14,9 @@
         "laravel-vite-plugin": "^2.1.0",
         "tailwindcss": "^4.2.2",
         "vite": "^7.3.1"
+    },
+    "dependencies": {
+        "vue": "^3.5.0",
+        "@inertiajs/vue3": "^2.2.9"
     }
 }
