@@ -90,7 +90,7 @@ app/
 │   ├── StudentAcademicHistory.php
 │   ├── Enrollment.php
 │   ├── Subject.php
-│   ├── GradeConfig.php
+│   ├── GradingConfig.php
 │   ├── GradePeriod.php
 │   ├── Grade.php
 │   ├── TimetableSlot.php
@@ -155,6 +155,58 @@ resources/js/
 
 🗃️ Base de données
 Conventions
+
+
+### Migrations réellement présentes (Laravel + métier)
+- **Migrations Laravel de base** :
+  - `0001_01_01_000000_create_users_table.php`
+  - `0001_01_01_000001_create_cache_table.php`
+  - `0001_01_01_000002_create_jobs_table.php`
+- **RBAC (Spatie Permission)** :
+  - `2026_03_25_201953_create_permission_tables.php`
+- **Migrations métier école** :
+  - `2026_03_25_210000_create_academic_years_table.php`
+  - `2026_03_25_210001_create_grading_configs_table.php`
+  - `2026_03_25_210002_create_levels_table.php`
+  - `2026_03_25_210003_create_classrooms_table.php`
+  - `2026_03_25_210004_create_subjects_table.php`
+  - `2026_03_25_210005_create_classroom_subject_table.php`
+  - `2026_03_25_210006_create_students_table.php`
+  - `2026_03_25_210007_create_parents_guardians_table.php`
+  - `2026_03_25_210008_create_student_parent_table.php`
+  - `2026_03_25_210009_create_emergency_contacts_table.php`
+  - `2026_03_25_210010_create_student_documents_table.php`
+  - `2026_03_25_210011_create_student_vaccinations_table.php`
+  - `2026_03_25_210012_create_student_academic_history_table.php`
+  - `2026_03_25_210013_create_enrollments_table.php`
+  - `2026_03_25_210014_create_grade_periods_table.php`
+  - `2026_03_25_210015_create_grades_table.php`
+  - `2026_03_25_210016_create_timetable_slots_table.php`
+  - `2026_03_25_210017_create_absences_table.php`
+  - `2026_03_25_210018_create_fee_structures_table.php`
+  - `2026_03_25_210019_create_payments_table.php`
+
+### Models réellement présents dans `app/Models`
+- `User`
+- `AcademicYear`
+- `GradingConfig`
+- `Level`
+- `Classroom`
+- `Subject`
+- `Student`
+- `ParentGuardian`
+- `EmergencyContact`
+- `StudentDocument`
+- `StudentVaccination`
+- `StudentAcademicHistory`
+- `Enrollment`
+- `GradePeriod`
+- `Grade`
+- `TimetableSlot`
+- `Absence`
+- `FeeStructure`
+- `Payment`
+
 
 Tables en snake_case anglais (standard Laravel)
 Clés étrangères : table_id
@@ -398,8 +450,8 @@ Appréciations automatiques :
 ## 🚀 Ordre de développement
 ```
 Phase 1 — Fondations
-  [ ] Migrations (toutes les tables)
-  [ ] Models + relations Eloquent
+  [x] Migrations (toutes les tables)
+  [x] Models + relations Eloquent
   [ ] Seeders (niveaux, matières, rôles)
   [ ] Auth + rôles
   [ ] Layout principal
