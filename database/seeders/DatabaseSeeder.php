@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RolesAndPermissionsSeeder::class, // 1. Rôles & permissions (en premier)
             LevelsSubjectsSeeder::class,       // 2. Niveaux & matières
-            UsersSeeder::class,                // 3. Utilisateurs de test (après les rôles)
+            AcademicYearSeeder::class,         // 3. Année scolaire active
+            UsersSeeder::class,                // 4. Utilisateurs de test (après les rôles)
         ]);
     }
 }

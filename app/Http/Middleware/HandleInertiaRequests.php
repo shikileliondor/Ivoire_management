@@ -27,8 +27,23 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        $user     = $request->user();
-        $settings = app(SchoolSettings::class);
+        $user = $request->user();
+
+        // Chargement sécurisé des settings (évite un crash avant migrate)
+        try {
+            $settings = app(SchoolSettings::class);
+            $school = [
+                'name'          => $settings->name,
+                'logo'          => $settings->logo ? asset('storage/' . $settings->logo) : null,
+                'address'       => $settings->address,
+                'phone'         => $settings->phone,
+                'email'         => $settings->email,
+                'slogan'        => $settings->slogan,
+                'director_name' => $settings->director_name,
+            ];
+        } catch (\Throwable) {
+            $school = ['name' => '', 'logo' => null, 'address' => '', 'phone' => '', 'email' => '', 'slogan' => '', 'director_name' => ''];
+        }
 
         return array_merge(parent::share($request), [
 
@@ -46,17 +61,7 @@ class HandleInertiaRequests extends Middleware
             ],
 
             // ── Paramètres de l'école ─────────────────────────────────────
-            'school' => [
-                'name'         => $settings->name,
-                'logo'         => $settings->logo
-                    ? asset('storage/' . $settings->logo)
-                    : null,
-                'address'      => $settings->address,
-                'phone'        => $settings->phone,
-                'email'        => $settings->email,
-                'slogan'       => $settings->slogan,
-                'director_name'=> $settings->director_name,
-            ],
+            'school' => $school,
 
             // ── Permissions (filtre le menu de la sidebar) ────────────────
             'can' => $user ? [

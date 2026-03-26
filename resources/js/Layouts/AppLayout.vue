@@ -126,7 +126,7 @@ watch(
                     </div>
                     <div class="min-w-0">
                         <p class="truncate text-sm font-semibold">{{ app.name || 'EduGest CI' }}</p>
-                        <p class="text-xs text-white/80">Année scolaire 2024-2025</p>
+                        <p class="text-xs text-white/80">{{ app.slogan || 'Gestion scolaire' }}</p>
                     </div>
                 </div>
             </div>

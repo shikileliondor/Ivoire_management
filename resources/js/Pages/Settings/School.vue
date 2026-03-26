@@ -30,7 +30,7 @@ function onLogoChange(e) {
 }
 
 function submit() {
-  form.post(route('settings.school.update'), {
+  form.patch(route('settings.school.update'), {
     forceFormData: true,
     onSuccess: () => form.reset('logo'),
   })
