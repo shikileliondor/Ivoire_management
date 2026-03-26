@@ -18,12 +18,13 @@ Route::middleware('auth')->name('settings.school.')->prefix('settings/school')->
 
 // ── Authentification ──────────────────────────────────────────────────────
 Route::middleware('guest')->group(function () {
-    Route::get('/connexion', [AuthenticatedSessionController::class, 'create'])
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
-    Route::post('/connexion', [AuthenticatedSessionController::class, 'store']);
+    Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+        ->name('login.store');
 });
 
-Route::post('/deconnexion', [AuthenticatedSessionController::class, 'destroy'])
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
 
@@ -31,7 +32,7 @@ Route::post('/deconnexion', [AuthenticatedSessionController::class, 'destroy'])
 Route::middleware(['auth'])->group(function () {
 
     // Dashboard
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Paramètres école (Directeur uniquement)
     Route::middleware('role:Directeur')->group(function () {

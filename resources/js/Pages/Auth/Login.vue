@@ -5,12 +5,12 @@ import { computed } from 'vue'
 const school = computed(() => usePage().props.school ?? {})
 
 const form = useForm({
-  email    : '',
-  password : '',
-  remember : false,
+  email: '',
+  password: '',
+  remember: false,
 })
 
-function submit() {
+const submit = () => {
   form.post(route('login'), {
     onFinish: () => form.reset('password'),
   })
