@@ -31,9 +31,11 @@ class EnsureSchoolIsConfigured
             return $next($request);
         }
 
+        // Ne plus forcer de redirection après connexion :
+        // le tableau de bord doit rester la page d'atterrissage.
+        // La configuration de l'école reste accessible dans les paramètres.
         if ($user !== null && $user->hasRole('Directeur') && blank($schoolName)) {
-            return redirect()->route('settings.school.edit')
-                ->with('warning', 'Veuillez d\'abord configurer les paramètres de l\'école.');
+            return $next($request);
         }
 
         return $next($request);
